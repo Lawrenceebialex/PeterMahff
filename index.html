@@ -43,10 +43,7 @@
             align-items: center;
             justify-content: space-between;
         }
-        .logo-area img {
-            height: 52px;
-            width: auto;
-        }
+        .logo-area img { height: 52px; width: auto; }
         .desktop-nav {
             display: flex;
             gap: 2rem;
@@ -108,15 +105,10 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8.5px) rotate(45deg);
-        }
+        .hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8.5px) rotate(-45deg);
-        }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
-        /* Full screen menu */
         .fullscreen-menu {
             position: fixed;
             inset: 0;
@@ -212,7 +204,7 @@
             letter-spacing: 0.03em;
         }
 
-        /* Shared */
+        /* Shared sections */
         section { padding: 5rem 1.5rem; }
         .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
@@ -229,35 +221,76 @@
             margin: 0 auto 3rem;
         }
 
-        /* Teaser services on home */
-        .teaser {
-            background: var(--off-white);
-        }
-        .teaser-grid {
+        /* Services */
+        .services { background: var(--off-white); }
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.75rem;
         }
-        .teaser-card {
+        .service-card {
             background: var(--white);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .teaser-card h3 {
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .service-card h3 {
             font-size: 1.2rem;
             color: var(--navy);
             margin-bottom: 0.75rem;
         }
-        .teaser-card p {
+        .service-card p {
             color: var(--muted);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
         }
-        .teaser-card a {
+
+        /* Why Us */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .why-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .why-item h3 {
+            font-size: 1.15rem;
             color: var(--navy);
-            font-weight: 600;
-            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .why-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Subtle scroll animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Footer */
@@ -315,29 +348,64 @@
         </div>
     </section>
 
-    <section class="teaser">
+    <section class="services">
         <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <p class="section-sub">Core dredging and marine services designed for Nigerian projects.</p>
-            <div class="teaser-grid">
-                <div class="teaser-card">
+            <h2 class="section-title fade-up">Our Services</h2>
+            <p class="section-sub fade-up">We provide essential dredging and marine support services tailored to the needs of construction government and private clients in Nigeria.</p>
+            <div class="services-grid">
+                <div class="service-card fade-up">
                     <h3>Channel Dredging</h3>
                     <p>We deepen and maintain waterways ports and access channels so vessels can move safely and efficiently.</p>
-                    <a href="services.html">Learn more →</a>
                 </div>
-                <div class="teaser-card">
+                <div class="service-card fade-up">
                     <h3>Land Reclamation</h3>
                     <p>We create new usable land from water bodies for housing commercial development and infrastructure projects.</p>
-                    <a href="services.html">Learn more →</a>
                 </div>
-                <div class="teaser-card">
+                <div class="service-card fade-up">
                     <h3>Sand Winning and Filling</h3>
                     <p>We extract and supply quality sand for construction and fill low lying areas to the required levels.</p>
-                    <a href="services.html">Learn more →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <h3>Shore Protection</h3>
+                    <p>We protect coastlines riverbanks and waterfronts from erosion using proven dredging and placement methods.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <h3>River and Lake Dredging</h3>
+                    <p>We clear silt and deepen rivers and lakes to improve navigation reduce flooding and restore capacity.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <h3>Marine Support</h3>
+                    <p>We provide related logistics and support services that keep your marine and construction projects moving.</p>
                 </div>
             </div>
-            <div style="text-align:center; margin-top:2.5rem;">
-                <a href="services.html" class="btn">View All Services</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title fade-up">Why Choose PETER MAHFF</h2>
+            <p class="section-sub fade-up">As a focused Warri based company we bring local knowledge combined with a professional approach to every project.</p>
+            <div class="why-grid">
+                <div class="why-item fade-up">
+                    <div class="why-icon">1</div>
+                    <h3>Local Presence</h3>
+                    <p>Based in Warri we understand the Niger Delta environment and can mobilise quickly for projects in the region.</p>
+                </div>
+                <div class="why-item fade-up">
+                    <div class="why-icon">2</div>
+                    <h3>Quality Focus</h3>
+                    <p>We prioritise careful planning accurate execution and clear communication so results meet agreed standards.</p>
+                </div>
+                <div class="why-item fade-up">
+                    <div class="why-icon">3</div>
+                    <h3>Reliable Delivery</h3>
+                    <p>Clients choose us because we stay committed to timelines and keep them informed throughout the work.</p>
+                </div>
+                <div class="why-item fade-up">
+                    <div class="why-icon">4</div>
+                    <h3>Safety First</h3>
+                    <p>Every operation is planned with safety of people equipment and the environment as a core requirement.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -352,6 +420,7 @@
     </footer>
 
     <script>
+        // Hamburger
         const hamburger = document.getElementById('hamburger');
         const menu = document.getElementById('fullscreenMenu');
         hamburger.addEventListener('click', () => {
@@ -366,6 +435,19 @@
                 document.body.style.overflow = '';
             });
         });
+
+        // Subtle scroll animation
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        fadeEls.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
