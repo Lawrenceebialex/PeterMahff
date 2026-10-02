@@ -282,6 +282,32 @@
             font-size: 0.95rem;
         }
 
+        /* CTA band */
+        .cta-band {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+        .cta-band h2 {
+            font-size: clamp(1.5rem, 3vw, 1.9rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .cta-band p {
+            opacity: 0.9;
+            max-width: 480px;
+            margin: 0 auto 1.75rem;
+            font-size: 1.05rem;
+        }
+        .cta-band .btn {
+            background: var(--white);
+            color: var(--navy);
+        }
+        .cta-band .btn:hover {
+            background: var(--off-white);
+        }
+
         /* Subtle scroll animation */
         .fade-up {
             opacity: 0;
@@ -293,16 +319,33 @@
             transform: translateY(0);
         }
 
-        /* Footer */
+        /* Footer – stronger weight */
         footer {
             background: var(--navy-dark);
-            color: rgba(255,255,255,0.7);
-            padding: 2rem 1.5rem;
+            color: rgba(255,255,255,0.75);
+            padding: 3rem 1.5rem 2.25rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
-        footer a { color: rgba(255,255,255,0.9); }
+        footer .footer-brand {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+        footer .footer-links {
+            margin: 1rem 0 1.25rem;
+        }
+        footer a {
+            color: rgba(255,255,255,0.9);
+            margin: 0 0.6rem;
+        }
         footer a:hover { text-decoration: underline; }
+        footer .footer-copy {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -410,13 +453,22 @@
         </div>
     </section>
 
+    <div class="cta-band fade-up">
+        <h2>Ready to discuss your next project?</h2>
+        <p>Tell us what you need. We respond promptly and are ready to support your dredging work in Warri and across the Niger Delta.</p>
+        <a href="contact.html" class="btn">Request a Quote</a>
+    </div>
+
     <footer>
-        <p>&copy; 2026 PETER MAHFF Dredging. Warri Nigeria. All rights reserved.</p>
-        <p style="margin-top:0.5rem;">
-            <a href="https://wa.me/2348107350932">WhatsApp</a> · 
-            <a href="mailto:lawrenceebialex@gmail.com">Email</a> · 
+        <div class="footer-brand">PETER MAHFF Dredging</div>
+        <p>Warri Nigeria</p>
+        <div class="footer-links">
+            <a href="https://wa.me/2348107350932">WhatsApp</a>
+            <a href="mailto:lawrenceebialex@gmail.com">Email</a>
             <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a>
-        </p>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 PETER MAHFF Dredging. All rights reserved.</p>
     </footer>
 
     <script>
