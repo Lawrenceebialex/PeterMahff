@@ -14,30 +14,18 @@
             --navy-dark: #061a2e;
             --white: #ffffff;
             --off-white: #f8f9fa;
-            --light-gray: #e9ecef;
             --text: #1a1a1a;
             --muted: #5a6a7a;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: var(--text);
             line-height: 1.6;
             background: var(--white);
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
 
         /* Header */
         header {
@@ -45,45 +33,34 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 200;
         }
         .nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 1.5rem;
+            padding: 0.9rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
         .logo-area img {
-            height: 48px;
+            height: 52px;
             width: auto;
         }
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--navy);
-            letter-spacing: 0.02em;
-        }
-        .nav-links {
+        .desktop-nav {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-        .nav-links a {
+        .desktop-nav a {
             font-weight: 500;
             color: var(--navy);
             font-size: 0.95rem;
             transition: color 0.2s;
         }
-        .nav-links a:hover {
-            color: #1a4a7a;
-        }
+        .desktop-nav a:hover { color: #1a4a7a; }
+        .desktop-nav a.active { font-weight: 600; }
+
         .btn {
             display: inline-block;
             padding: 0.7rem 1.5rem;
@@ -108,6 +85,81 @@
         .btn-outline:hover {
             background: var(--white);
             color: var(--navy);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            width: 28px;
+            height: 20px;
+            flex-direction: column;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 300;
+            padding: 0;
+        }
+        .hamburger span {
+            display: block;
+            height: 2.5px;
+            width: 100%;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8.5px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8.5px) rotate(-45deg);
+        }
+
+        /* Full screen menu */
+        .fullscreen-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            z-index: 250;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .fullscreen-menu.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fullscreen-menu nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .fullscreen-menu a {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+        .fullscreen-menu a:hover { opacity: 0.8; }
+        .fullscreen-menu .menu-cta {
+            margin-top: 1.5rem;
+            padding: 0.9rem 2.2rem;
+            background: var(--white);
+            color: var(--navy);
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .desktop-nav { display: none; }
+            .hamburger { display: flex; }
         }
 
         /* Hero */
@@ -160,14 +212,9 @@
             letter-spacing: 0.03em;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 1.5rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        /* Shared */
+        section { padding: 5rem 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -182,147 +229,35 @@
             margin: 0 auto 3rem;
         }
 
-        /* Services */
-        .services {
+        /* Teaser services on home */
+        .teaser {
             background: var(--off-white);
         }
-        .services-grid {
+        .teaser-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.75rem;
         }
-        .service-card {
+        .teaser-card {
             background: var(--white);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-        .service-card h3 {
+        .teaser-card h3 {
             font-size: 1.2rem;
             color: var(--navy);
             margin-bottom: 0.75rem;
         }
-        .service-card p {
+        .teaser-card p {
             color: var(--muted);
             font-size: 0.95rem;
-        }
-
-        /* Why Us */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-        .why-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-        .why-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--navy);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.25rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        .why-item h3 {
-            font-size: 1.15rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-        .why-item p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--navy);
-            color: var(--white);
-        }
-        .contact .section-title {
-            color: var(--white);
-        }
-        .contact .section-sub {
-            color: rgba(255,255,255,0.8);
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-        .contact-info h3 {
-            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
-        .contact-info p, .contact-info a {
-            margin-bottom: 0.75rem;
-            display: block;
-            color: rgba(255,255,255,0.9);
-        }
-        .contact-info a:hover {
-            color: var(--white);
-            text-decoration: underline;
-        }
-        .contact-form {
-            background: rgba(255,255,255,0.08);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 6px;
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        .contact-form .btn {
-            width: 100%;
-            background: var(--white);
+        .teaser-card a {
             color: var(--navy);
-        }
-        .contact-form .btn:hover {
-            background: var(--off-white);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -333,144 +268,104 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        footer a {
-            color: rgba(255,255,255,0.9);
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: rgba(255,255,255,0.9); }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
         <nav class="nav">
-            <div class="logo-area">
+            <a href="index.html" class="logo-area">
                 <img src="https://i.ibb.co/k69Pv8wq/1000643785-removebg-preview.png" alt="PETER MAHFF Dredging Logo">
-                <span class="logo-text">PETER MAHFF</span>
+            </a>
+            <div class="desktop-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="why.html">Why Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn">Get Quote</a>
             </div>
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#why">Why Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="btn">Get Quote</a>
-            </div>
+            <button class="hamburger" aria-label="Open menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="why.html">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="menu-cta">Get Quote</a>
+        </nav>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Professional Dredging Solutions in Warri Nigeria</h1>
             <p>PETER MAHFF delivers reliable channel dredging land reclamation and sand winning services with precision and care for projects across the Niger Delta and beyond.</p>
             <div class="hero-ctas">
-                <a href="#contact" class="btn">Request a Quote</a>
-                <a href="#services" class="btn btn-outline">Our Services</a>
+                <a href="contact.html" class="btn">Request a Quote</a>
+                <a href="services.html" class="btn btn-outline">Our Services</a>
             </div>
             <div class="location-tag">Warri Nigeria | Serving the Niger Delta</div>
         </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="teaser">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-sub">We provide essential dredging and marine support services tailored to the needs of construction government and private clients in Nigeria.</p>
-            <div class="services-grid">
-                <div class="service-card">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-sub">Core dredging and marine services designed for Nigerian projects.</p>
+            <div class="teaser-grid">
+                <div class="teaser-card">
                     <h3>Channel Dredging</h3>
                     <p>We deepen and maintain waterways ports and access channels so vessels can move safely and efficiently.</p>
+                    <a href="services.html">Learn more →</a>
                 </div>
-                <div class="service-card">
+                <div class="teaser-card">
                     <h3>Land Reclamation</h3>
                     <p>We create new usable land from water bodies for housing commercial development and infrastructure projects.</p>
+                    <a href="services.html">Learn more →</a>
                 </div>
-                <div class="service-card">
+                <div class="teaser-card">
                     <h3>Sand Winning and Filling</h3>
                     <p>We extract and supply quality sand for construction and fill low lying areas to the required levels.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Shore Protection</h3>
-                    <p>We protect coastlines riverbanks and waterfronts from erosion using proven dredging and placement methods.</p>
-                </div>
-                <div class="service-card">
-                    <h3>River and Lake Dredging</h3>
-                    <p>We clear silt and deepen rivers and lakes to improve navigation reduce flooding and restore capacity.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Marine Support</h3>
-                    <p>We provide related logistics and support services that keep your marine and construction projects moving.</p>
+                    <a href="services.html">Learn more →</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="why">
-        <div class="container">
-            <h2 class="section-title">Why Choose PETER MAHFF</h2>
-            <p class="section-sub">As a focused Warri based company we bring local knowledge combined with a professional approach to every project.</p>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="why-icon">1</div>
-                    <h3>Local Presence</h3>
-                    <p>Based in Warri we understand the Niger Delta environment and can mobilise quickly for projects in the region.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">2</div>
-                    <h3>Quality Focus</h3>
-                    <p>We prioritise careful planning accurate execution and clear communication so results meet agreed standards.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">3</div>
-                    <h3>Reliable Delivery</h3>
-                    <p>Clients choose us because we stay committed to timelines and keep them informed throughout the work.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">4</div>
-                    <h3>Safety First</h3>
-                    <p>Every operation is planned with safety of people equipment and the environment as a core requirement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-sub">Tell us about your project. We respond promptly and are ready to discuss how we can support your dredging needs.</p>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <p><strong>Phone / WhatsApp</strong><br><a href="https://wa.me/2348107350932">0810 735 0932</a></p>
-                    <p><strong>Email</strong><br><a href="mailto:lawrenceebialex@gmail.com">lawrenceebialex@gmail.com</a></p>
-                    <p><strong>Instagram</strong><br><a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">@lawrence_e_a</a></p>
-                    <p><strong>Location</strong><br>Warri Nigeria</p>
-                </div>
-                <div class="contact-form">
-                    <form action="mailto:lawrenceebialex@gmail.com" method="post" enctype="text/plain">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Briefly describe your dredging or reclamation needs" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
+            <div style="text-align:center; margin-top:2.5rem;">
+                <a href="services.html" class="btn">View All Services</a>
             </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 PETER MAHFF Dredging. Warri Nigeria. All rights reserved.</p>
-        <p style="margin-top:0.5rem;"><a href="https://wa.me/2348107350932">WhatsApp</a> &middot; <a href="mailto:lawrenceebialex@gmail.com">Email</a> &middot; <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a></p>
+        <p style="margin-top:0.5rem;">
+            <a href="https://wa.me/2348107350932">WhatsApp</a> · 
+            <a href="mailto:lawrenceebialex@gmail.com">Email</a> · 
+            <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a>
+        </p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('fullscreenMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                menu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>
