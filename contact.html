@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | PETER MAHFF Dredging</title>
-    <meta name="description" content="Contact PETER MAHFF Dredging in Warri Nigeria. WhatsApp phone email and project enquiry form.">
+    <meta name="description" content="Contact PETER MAHFF Dredging in Warri Nigeria. Phone WhatsApp email and project enquiry form.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +12,9 @@
         :root {
             --navy: #0A2540;
             --navy-dark: #061a2e;
+            --navy-mid: #123352;
             --white: #ffffff;
-            --off-white: #f5f7f9;
+            --off-white: #f4f6f8;
             --text: #1c2a35;
             --muted: #5a6a7a;
             --wa: #25D366;
@@ -29,46 +30,25 @@
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
 
-        .contact-strip {
-            background: var(--navy-dark);
-            color: var(--white);
-            font-size: 0.88rem;
-            position: sticky;
-            top: 0;
-            z-index: 210;
-        }
-        .contact-strip-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.55rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.75rem;
-            flex-wrap: wrap;
-        }
-        .contact-strip a { color: var(--white); font-weight: 500; }
-        .contact-strip .wa-link { color: #7dffa8; font-weight: 600; }
-
         header {
             background: var(--white);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
             position: sticky;
-            top: 36px;
+            top: 0;
             z-index: 200;
         }
         .nav {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0.85rem 1.5rem;
+            padding: 0.9rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        .logo-area img { height: 50px; width: auto; }
+        .logo-area img { height: 48px; width: auto; }
         .desktop-nav {
             display: flex;
-            gap: 1.75rem;
+            gap: 2rem;
             align-items: center;
         }
         .desktop-nav a {
@@ -76,30 +56,25 @@
             color: var(--navy);
             font-size: 0.95rem;
         }
-        .desktop-nav a:hover { color: #1a7a6d; }
+        .desktop-nav a:hover { color: var(--navy-mid); }
         .desktop-nav a.active { font-weight: 700; }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 1.7rem;
+            padding: 0.8rem 1.75rem;
             background: var(--navy);
             color: var(--white);
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 6px;
             border: none;
             cursor: pointer;
             transition: background 0.2s, transform 0.15s;
             font-size: 0.95rem;
         }
-        .btn:hover { background: #123352; transform: translateY(-1px); }
-        .btn-wa {
-            background: var(--wa);
-            color: #fff;
-            font-size: 1.05rem;
-            padding: 0.95rem 2rem;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        .btn:hover {
+            background: var(--navy-mid);
+            transform: translateY(-1px);
         }
-        .btn-wa:hover { background: #1ebe57; }
 
         .hamburger {
             display: none;
@@ -147,48 +122,47 @@
         }
         .fullscreen-menu a {
             color: var(--white);
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             font-weight: 600;
         }
         .fullscreen-menu .menu-cta {
-            margin-top: 1.5rem;
-            padding: 0.95rem 2.2rem;
-            background: var(--wa);
-            color: #fff;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            margin-top: 1.25rem;
+            padding: 0.85rem 2rem;
+            background: var(--white);
+            color: var(--navy);
+            border-radius: 6px;
+            font-size: 1.05rem;
         }
 
         @media (max-width: 900px) {
             .desktop-nav { display: none; }
             .hamburger { display: flex; }
-            header { top: 32px; }
         }
 
         .page-hero {
-            background: linear-gradient(145deg, #061a2e, #0A2540);
+            background: var(--navy);
             color: var(--white);
-            padding: 4.5rem 1.5rem;
+            padding: 4rem 1.5rem;
             text-align: center;
         }
         .page-hero h1 {
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            font-size: clamp(1.7rem, 3.5vw, 2.3rem);
             font-weight: 800;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
             letter-spacing: -0.02em;
         }
         .page-hero p {
-            max-width: 520px;
+            max-width: 480px;
             margin: 0 auto;
-            opacity: 0.92;
+            opacity: 0.9;
         }
 
-        section { padding: 5rem 1.5rem; }
-        .container { max-width: 1100px; margin: 0 auto; }
+        section { padding: 4.5rem 1.5rem; }
+        .container { max-width: 1000px; margin: 0 auto; }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1.15fr;
             gap: 3rem;
             align-items: start;
         }
@@ -197,91 +171,64 @@
         }
 
         .contact-info h3 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--navy);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.35rem;
             font-weight: 700;
         }
-
-        .contact-method {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 1px solid #e8ecf0;
+        .contact-row {
+            margin-bottom: 1.35rem;
         }
-        .contact-method:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .contact-method.primary {
-            background: #f0faf4;
-            border: 1px solid #c8eed8;
-            border-radius: 12px;
-            padding: 1.35rem 1.5rem;
-            margin-bottom: 1.75rem;
-        }
-        .contact-method .label {
+        .contact-row .label {
             font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             color: var(--muted);
-            margin-bottom: 0.35rem;
             font-weight: 600;
+            margin-bottom: 0.25rem;
         }
-        .contact-method.primary .label { color: #1a7a45; }
-        .contact-method a {
+        .contact-row a,
+        .contact-row span {
             color: var(--navy);
             font-weight: 600;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
         }
-        .contact-method.primary a {
-            color: #128c3a;
-            font-size: 1.3rem;
-        }
-        .contact-method .note {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-top: 0.35rem;
-        }
-        .contact-method.primary .note {
-            color: #2d6b4a;
-            font-weight: 500;
-        }
+        .contact-row a:hover { text-decoration: underline; }
 
         .contact-form {
             background: var(--off-white);
-            padding: 2.15rem;
-            border-radius: 12px;
+            padding: 2rem;
+            border-radius: 10px;
         }
-        .form-group { margin-bottom: 1.25rem; }
+        .form-group { margin-bottom: 1.15rem; }
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.88rem;
             font-weight: 500;
             color: var(--navy);
         }
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #d0d5dd;
-            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d5dbe3;
+            border-radius: 6px;
             background: var(--white);
             color: var(--text);
             font-family: inherit;
             font-size: 1rem;
         }
         .form-group textarea {
-            min-height: 130px;
+            min-height: 120px;
             resize: vertical;
         }
         .contact-form .btn { width: 100%; }
 
         footer {
             background: var(--navy-dark);
-            color: rgba(255,255,255,0.75);
-            padding: 2.75rem 1.5rem;
+            color: rgba(255,255,255,0.72);
+            padding: 2.5rem 1.5rem;
             text-align: center;
             font-size: 0.9rem;
         }
@@ -293,29 +240,29 @@
 
         .float-wa {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
+            bottom: 1.4rem;
+            right: 1.4rem;
             z-index: 190;
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
             background: var(--wa);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
             transition: transform 0.2s;
         }
-        .float-wa:hover { transform: scale(1.08); }
-        .float-wa svg { width: 30px; height: 30px; fill: #fff; }
+        .float-wa:hover { transform: scale(1.06); }
+        .float-wa svg { width: 28px; height: 28px; fill: #fff; }
 
         .back-top {
             position: fixed;
-            bottom: 1.5rem;
-            left: 1.5rem;
+            bottom: 1.4rem;
+            left: 1.4rem;
             z-index: 190;
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             background: var(--navy);
             color: var(--white);
             border: none;
@@ -327,21 +274,14 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-            box-shadow: 0 4px 14px rgba(10, 37, 64, 0.3);
+            box-shadow: 0 3px 12px rgba(10, 37, 64, 0.25);
         }
         .back-top.show { opacity: 1; visibility: visible; }
-        .back-top:hover { transform: translateY(-3px); }
-        .back-top svg { width: 20px; height: 20px; fill: currentColor; }
+        .back-top:hover { transform: translateY(-2px); }
+        .back-top svg { width: 18px; height: 18px; fill: currentColor; }
     </style>
 </head>
 <body>
-    <div class="contact-strip">
-        <div class="contact-strip-inner">
-            <a href="https://wa.me/2348107350932" class="wa-link" target="_blank" rel="noopener">WhatsApp 0810 735 0932</a>
-            <a href="tel:+2348107350932">Call 0810 735 0932</a>
-        </div>
-    </div>
-
     <header>
         <nav class="nav">
             <a href="index.html" class="logo-area">
@@ -352,7 +292,7 @@
                 <a href="services.html">Services</a>
                 <a href="why.html">Why Us</a>
                 <a href="contact.html" class="active">Contact</a>
-                <a href="https://wa.me/2348107350932" class="btn btn-wa" target="_blank" rel="noopener">Chat on WhatsApp</a>
+                <a href="contact.html" class="btn">Get Quote</a>
             </div>
             <button class="hamburger" aria-label="Open menu" id="hamburger">
                 <span></span><span></span><span></span>
@@ -366,45 +306,35 @@
             <a href="services.html">Services</a>
             <a href="why.html">Why Us</a>
             <a href="contact.html">Contact</a>
-            <a href="https://wa.me/2348107350932" class="menu-cta" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a href="contact.html" class="menu-cta">Get Quote</a>
         </nav>
     </div>
 
     <div class="page-hero">
-        <h1>Ready to start your project? Talk to us today.</h1>
-        <p>Chat with us on WhatsApp. Usually replies within minutes.</p>
+        <h1>Contact Us</h1>
+        <p>Tell us about your project. We respond promptly and are ready to discuss your dredging needs.</p>
     </div>
 
     <section>
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>How to reach us</h3>
-
-                    <div class="contact-method primary">
-                        <div class="label">WhatsApp (Preferred)</div>
-                        <a href="https://wa.me/2348107350932" target="_blank" rel="noopener">0810 735 0932</a>
-                        <div class="note">Usually replies within minutes</div>
+                    <h3>Get in touch</h3>
+                    <div class="contact-row">
+                        <div class="label">WhatsApp / Phone</div>
+                        <a href="https://wa.me/2348107350932">0810 735 0932</a>
                     </div>
-
-                    <div class="contact-method">
-                        <div class="label">Phone</div>
-                        <a href="tel:+2348107350932">0810 735 0932</a>
-                    </div>
-
-                    <div class="contact-method">
+                    <div class="contact-row">
                         <div class="label">Email</div>
                         <a href="mailto:lawrenceebialex@gmail.com">lawrenceebialex@gmail.com</a>
                     </div>
-
-                    <div class="contact-method">
+                    <div class="contact-row">
                         <div class="label">Instagram</div>
                         <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">@lawrence_e_a</a>
                     </div>
-
-                    <div class="contact-method">
+                    <div class="contact-row">
                         <div class="label">Location</div>
-                        <span style="font-weight:600; color:var(--navy);">Warri Nigeria</span>
+                        <span>Warri Nigeria</span>
                     </div>
                 </div>
 
@@ -435,13 +365,13 @@
 
     <footer>
         <p><strong>PETER MAHFF Dredging</strong> · Warri Nigeria</p>
-        <p style="margin-top:0.75rem;">
+        <p style="margin-top:0.7rem;">
             <a href="https://wa.me/2348107350932">WhatsApp</a>
             <a href="tel:+2348107350932">Phone</a>
             <a href="mailto:lawrenceebialex@gmail.com">Email</a>
             <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a>
         </p>
-        <p style="margin-top:1rem; opacity:0.7; font-size:0.85rem;">&copy; 2026 PETER MAHFF Dredging. All rights reserved.</p>
+        <p style="margin-top:1rem; opacity:0.65; font-size:0.84rem;">&copy; 2026 PETER MAHFF Dredging. All rights reserved.</p>
     </footer>
 
     <a href="https://wa.me/2348107350932" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
