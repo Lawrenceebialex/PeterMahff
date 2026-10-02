@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | PETER MAHFF Dredging</title>
+    <meta name="description" content="Channel dredging land reclamation sand winning shore protection and marine support services from PETER MAHFF in Warri Nigeria.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A2540;
+            --navy-dark: #061a2e;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --text: #1a1a1a;
+            --muted: #5a6a7a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-area img { height: 52px; width: auto; }
+        .desktop-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .desktop-nav a {
+            font-weight: 500;
+            color: var(--navy);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .desktop-nav a:hover { color: #1a4a7a; }
+        .desktop-nav a.active { font-weight: 600; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            font-size: 0.95rem;
+        }
+        .btn:hover {
+            background: var(--navy-dark);
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            width: 28px;
+            height: 20px;
+            flex-direction: column;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 300;
+            padding: 0;
+        }
+        .hamburger span {
+            display: block;
+            height: 2.5px;
+            width: 100%;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+        .fullscreen-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            z-index: 250;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+        .fullscreen-menu.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fullscreen-menu nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .fullscreen-menu a {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+        .fullscreen-menu a:hover { opacity: 0.8; }
+        .fullscreen-menu .menu-cta {
+            margin-top: 1.5rem;
+            padding: 0.9rem 2.2rem;
+            background: var(--white);
+            color: var(--navy);
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .desktop-nav { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        .page-hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .page-hero p {
+            max-width: 560px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        section { padding: 4.5rem 1.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+        }
+        .service-card {
+            background: var(--off-white);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #eef0f2;
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .cta-band {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+        }
+        .cta-band h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .cta-band .btn {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        footer {
+            background: var(--navy-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a { color: rgba(255,255,255,0.9); }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="index.html" class="logo-area">
+                <img src="https://i.ibb.co/k69Pv8wq/1000643785-removebg-preview.png" alt="PETER MAHFF Dredging Logo">
+            </a>
+            <div class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="why.html">Why Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+            <button class="hamburger" aria-label="Open menu" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="why.html">Why Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="menu-cta">Get Quote</a>
+        </nav>
+    </div>
+
+    <div class="page-hero">
+        <h1>Our Services</h1>
+        <p>Professional dredging and marine support tailored for projects in Warri the Niger Delta and across Nigeria.</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Channel Dredging</h3>
+                    <p>We deepen and maintain waterways ports and access channels so vessels can move safely and efficiently. Ideal for port approaches river mouths and industrial waterfronts.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Land Reclamation</h3>
+                    <p>We create new usable land from water bodies for housing commercial development and infrastructure projects. Careful placement and compaction for stable results.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Sand Winning and Filling</h3>
+                    <p>We extract and supply quality sand for construction and fill low lying areas to the required levels. Suitable for building sites roads and industrial platforms.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Shore Protection</h3>
+                    <p>We protect coastlines riverbanks and waterfronts from erosion using proven dredging and placement methods that respect local conditions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>River and Lake Dredging</h3>
+                    <p>We clear silt and deepen rivers and lakes to improve navigation reduce flooding risk and restore water holding capacity.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Marine Support</h3>
+                    <p>We provide related logistics and support services that keep your marine and construction projects moving smoothly from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-band">
+        <h2>Ready to discuss your project?</h2>
+        <a href="contact.html" class="btn">Request a Quote</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PETER MAHFF Dredging. Warri Nigeria. All rights reserved.</p>
+        <p style="margin-top:0.5rem;">
+            <a href="https://wa.me/2348107350932">WhatsApp</a> · 
+            <a href="mailto:lawrenceebialex@gmail.com">Email</a> · 
+            <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a>
+        </p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('fullscreenMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                menu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
