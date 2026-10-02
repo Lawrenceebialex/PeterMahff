@@ -16,6 +16,7 @@
             --off-white: #f8f9fa;
             --text: #1a1a1a;
             --muted: #5a6a7a;
+            --wa: #25D366;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -27,12 +28,44 @@
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
 
+        /* Sticky contact strip */
+        .contact-strip {
+            background: var(--navy-dark);
+            color: var(--white);
+            font-size: 0.88rem;
+            position: sticky;
+            top: 0;
+            z-index: 210;
+        }
+        .contact-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.55rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.75rem;
+            flex-wrap: wrap;
+        }
+        .contact-strip a {
+            color: var(--white);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .contact-strip a:hover { opacity: 0.9; }
+        .contact-strip .wa-link {
+            color: #7dffa8;
+            font-weight: 600;
+        }
+
         /* Header */
         header {
             background: var(--white);
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
             position: sticky;
-            top: 0;
+            top: 36px;
             z-index: 200;
         }
         .nav {
@@ -60,7 +93,7 @@
 
         .btn {
             display: inline-block;
-            padding: 0.7rem 1.5rem;
+            padding: 0.75rem 1.6rem;
             background: var(--navy);
             color: var(--white);
             font-weight: 600;
@@ -74,6 +107,16 @@
             background: var(--navy-dark);
             transform: translateY(-1px);
         }
+        .btn-wa {
+            background: var(--wa);
+            color: #fff;
+            font-size: 1.05rem;
+            padding: 0.9rem 1.9rem;
+        }
+        .btn-wa:hover {
+            background: #1ebe57;
+            transform: translateY(-1px);
+        }
         .btn-outline {
             background: transparent;
             border: 2px solid var(--white);
@@ -82,6 +125,16 @@
         .btn-outline:hover {
             background: var(--white);
             color: var(--navy);
+        }
+        .btn-call {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: var(--white);
+            font-weight: 500;
+        }
+        .btn-call:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--white);
         }
 
         /* Hamburger */
@@ -143,8 +196,8 @@
         .fullscreen-menu .menu-cta {
             margin-top: 1.5rem;
             padding: 0.9rem 2.2rem;
-            background: var(--white);
-            color: var(--navy);
+            background: var(--wa);
+            color: #fff;
             border-radius: 6px;
             font-size: 1.1rem;
         }
@@ -152,6 +205,7 @@
         @media (max-width: 900px) {
             .desktop-nav { display: none; }
             .hamburger { display: flex; }
+            header { top: 32px; }
         }
 
         /* Hero */
@@ -195,6 +249,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: center;
         }
         .location-tag {
             display: inline-block;
@@ -204,7 +259,6 @@
             letter-spacing: 0.03em;
         }
 
-        /* Shared sections */
         section { padding: 5rem 1.5rem; }
         .container { max-width: 1200px; margin: 0 auto; }
         .section-title {
@@ -221,7 +275,6 @@
             margin: 0 auto 3rem;
         }
 
-        /* Services */
         .services { background: var(--off-white); }
         .services-grid {
             display: grid;
@@ -249,7 +302,6 @@
             font-size: 0.95rem;
         }
 
-        /* Why Us */
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -282,7 +334,6 @@
             font-size: 0.95rem;
         }
 
-        /* CTA band */
         .cta-band {
             background: var(--navy);
             color: var(--white);
@@ -300,15 +351,11 @@
             margin: 0 auto 1.75rem;
             font-size: 1.05rem;
         }
-        .cta-band .btn {
-            background: var(--white);
-            color: var(--navy);
-        }
-        .cta-band .btn:hover {
-            background: var(--off-white);
+        .cta-band .btn-wa {
+            margin-right: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Subtle scroll animation */
         .fade-up {
             opacity: 0;
             transform: translateY(28px);
@@ -319,7 +366,6 @@
             transform: translateY(0);
         }
 
-        /* Footer – stronger weight */
         footer {
             background: var(--navy-dark);
             color: rgba(255,255,255,0.75);
@@ -334,9 +380,7 @@
             font-size: 1.05rem;
             margin-bottom: 0.6rem;
         }
-        footer .footer-links {
-            margin: 1rem 0 1.25rem;
-        }
+        footer .footer-links { margin: 1rem 0 1.25rem; }
         footer a {
             color: rgba(255,255,255,0.9);
             margin: 0 0.6rem;
@@ -349,6 +393,13 @@
     </style>
 </head>
 <body>
+    <div class="contact-strip">
+        <div class="contact-strip-inner">
+            <a href="https://wa.me/2348107350932" class="wa-link" target="_blank" rel="noopener">WhatsApp 0810 735 0932</a>
+            <a href="tel:+2348107350932">Call 0810 735 0932</a>
+        </div>
+    </div>
+
     <header>
         <nav class="nav">
             <a href="index.html" class="logo-area">
@@ -359,12 +410,10 @@
                 <a href="services.html">Services</a>
                 <a href="why.html">Why Us</a>
                 <a href="contact.html">Contact</a>
-                <a href="contact.html" class="btn">Get Quote</a>
+                <a href="https://wa.me/2348107350932" class="btn btn-wa" target="_blank" rel="noopener">Chat on WhatsApp</a>
             </div>
             <button class="hamburger" aria-label="Open menu" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </nav>
     </header>
@@ -375,7 +424,7 @@
             <a href="services.html">Services</a>
             <a href="why.html">Why Us</a>
             <a href="contact.html">Contact</a>
-            <a href="contact.html" class="menu-cta">Get Quote</a>
+            <a href="https://wa.me/2348107350932" class="menu-cta" target="_blank" rel="noopener">Chat on WhatsApp</a>
         </nav>
     </div>
 
@@ -384,8 +433,8 @@
             <h1>Professional Dredging Solutions in Warri Nigeria</h1>
             <p>PETER MAHFF delivers reliable channel dredging land reclamation and sand winning services with precision and care for projects across the Niger Delta and beyond.</p>
             <div class="hero-ctas">
-                <a href="contact.html" class="btn">Request a Quote</a>
-                <a href="services.html" class="btn btn-outline">Our Services</a>
+                <a href="https://wa.me/2348107350932" class="btn btn-wa" target="_blank" rel="noopener">Chat on WhatsApp Now</a>
+                <a href="tel:+2348107350932" class="btn btn-call">Call 0810 735 0932</a>
             </div>
             <div class="location-tag">Warri Nigeria | Serving the Niger Delta</div>
         </div>
@@ -454,9 +503,10 @@
     </section>
 
     <div class="cta-band fade-up">
-        <h2>Ready to discuss your next project?</h2>
-        <p>Tell us what you need. We respond promptly and are ready to support your dredging work in Warri and across the Niger Delta.</p>
-        <a href="contact.html" class="btn">Request a Quote</a>
+        <h2>Ready to start your project? Talk to us today.</h2>
+        <p>Chat with us on WhatsApp. Usually replies within minutes.</p>
+        <a href="https://wa.me/2348107350932" class="btn btn-wa" target="_blank" rel="noopener">Chat on WhatsApp Now</a>
+        <a href="tel:+2348107350932" class="btn btn-call">Call 0810 735 0932</a>
     </div>
 
     <footer>
@@ -464,15 +514,14 @@
         <p>Warri Nigeria</p>
         <div class="footer-links">
             <a href="https://wa.me/2348107350932">WhatsApp</a>
+            <a href="tel:+2348107350932">Phone</a>
             <a href="mailto:lawrenceebialex@gmail.com">Email</a>
             <a href="https://instagram.com/lawrence_e_a" target="_blank" rel="noopener">Instagram</a>
-            <a href="contact.html">Contact</a>
         </div>
         <p class="footer-copy">&copy; 2026 PETER MAHFF Dredging. All rights reserved.</p>
     </footer>
 
     <script>
-        // Hamburger
         const hamburger = document.getElementById('hamburger');
         const menu = document.getElementById('fullscreenMenu');
         hamburger.addEventListener('click', () => {
@@ -488,7 +537,6 @@
             });
         });
 
-        // Subtle scroll animation
         const fadeEls = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -498,7 +546,6 @@
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
         fadeEls.forEach(el => observer.observe(el));
     </script>
 </body>
